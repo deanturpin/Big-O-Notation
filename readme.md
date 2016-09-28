@@ -1,4 +1,4 @@
 ## Big O Notation
-See [Installation instructions](install.md).
+See [how this documentation is generated](install.md).
 ### Exponential
 ![](image/exponential.png)
