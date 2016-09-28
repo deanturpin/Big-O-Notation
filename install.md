@@ -9,10 +9,12 @@ gnuplot
 ### Compile and generate all images and documentation (this readme)
 
 ```bash
-$ make clean
-rm -f *.o
+make generate
+```
 
-$ make generate
+### Remove all objects and images
+```bash
+make clean
 ```
 
 ### Adding new complexities
