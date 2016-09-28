@@ -16,3 +16,7 @@ $ make generate
 ```
 ### Exponential
 ![](image/exponential.png)
+### Exponential
+![](image/exponential.png)
+### Exponential
+![](image/exponential.png)
