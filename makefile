@@ -1,15 +1,19 @@
-.SILENT:
+# .SILENT:
 
-complexity.o: complexity.cpp
-	clang++ -Weverything -o $@ $<
+all: foo
 
+# List of all directories containing a makefile
+source_dirs := $(dir $(wildcard */makefile))
+
+# Build each project
+foo:
+	$(foreach dir, $(source_dirs), make -j -C $(dir);)
+
+# Clean each project
 clean:
-	rm -f *.o
+	$(foreach dir, $(source_dirs), make -j -C $(dir) clean;)
 
-generate: complexity.o
+generate: foo
 	echo '## Big O Notation' > readme.md
 	echo 'See [how this documentation is generated](install.md).' >> readme.md
-	# Create image and add a link to it
-	./complexity.o | gnuplot -p -e "set datafile separator ','; set output 'image/exponential.png'; set terminal png; plot '-' using 1:2 w l"
-	echo '### Exponential' >> readme.md
-	echo '![](image/exponential.png)' >> readme.md
+	$(foreach dir, $(source_dirs), make -j -C $(dir) generate;)
