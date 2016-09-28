@@ -17,7 +17,7 @@ $ make generate
 
 ### Adding new complexities
 Output should be iteration and a measure of complexity. In this case it is the
-number of iterations of a Fibonacci sequence calculator.
+number of calls of a Fibonacci sequence calculator.
 ```bash
 $ exponential/foo
 0,      0
