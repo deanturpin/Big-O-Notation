@@ -14,5 +14,5 @@ rm -f *.o
 
 $ make generate
 ```
-Exponential
+### Exponential
 ![](image/exponential.png)
