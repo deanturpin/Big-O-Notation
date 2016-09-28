@@ -5,5 +5,10 @@ clean:
 	rm -f *.o
 
 generate: complexity.o
-	cat header.md > readme.md	
-	./complexity.o | gnuplot -p -e "set datafile separator ','; set output 'comp.png'; plot '-' using 1:2 w l"
+	# Add header
+	cat header.md > readme.md
+	# Create image
+	./complexity.o | gnuplot -p -e "set datafile separator ','; set output 'image/exponential.png'; set terminal png; plot '-' using 1:2 w l"
+	# Add link to image
+	echo Exponential
+	echo '![](image/exponential.png)' >> readme.md
