@@ -24,15 +24,8 @@ namespace bigo {
 	void generateSequence();
 	void generateSequence() {
 	
-		// for (unsigned int i = 0; i < 40; ++i)
-			// cout << i << ",";
-
-		// cout << endl;
-
-		for (unsigned int i = 0; i < 40; ++i)
-			cout << i << "," << fibonacci(i) << endl;
-
-		// cout << endl;
+		for (unsigned int i = 0; i < 20; ++i)
+			cout << i << ",\t" << fibonacci(i) << endl;
 	}
 }
 
