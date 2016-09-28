@@ -6,10 +6,13 @@ clang
 gnuplot
 ```
 
-### Compile and run
+### Compile and generate all images and documentation (this readme)
 
 ```bash
 $ make clean
 rm -f *.o
+
+$ make generate
 ```
+Exponential
 ![](image/exponential.png)
