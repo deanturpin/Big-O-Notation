@@ -6,10 +6,10 @@ clang
 gnuplot
 ```
 
-### Compile and generate all images and documentation (this readme)
-
+### Compile code, generate images and documentation
+See ([readme.md](readme.md).
 ```bash
-make generate
+make
 ```
 
 ### Remove all objects and images

@@ -1,6 +1,6 @@
 # .SILENT:
 
-all: foo
+all: generate
 
 # List of all directories containing a makefile
 source_dirs := $(dir $(wildcard */makefile))
