@@ -1,3 +1,5 @@
+https://en.wikipedia.org/wiki/Big_O_notation
+
 ### Dependencies
 ```
 clang
@@ -10,3 +12,4 @@ gnuplot
 $ make clean
 rm -f *.o
 ```
+![](image/exponential.png)
