@@ -2,7 +2,7 @@
 
 static unsigned int callCount = 0;
 
-unsigned int factorial(unsigned int n);
+unsigned int factorial(unsigned int);
 unsigned int factorial(unsigned int n) {
 
 	++callCount;
