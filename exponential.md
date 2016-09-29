@@ -1,1 +1,1 @@
-O(c^n) where c>1
+O(c^n) where c>1 - Fibonacci sequence
