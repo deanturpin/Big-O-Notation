@@ -31,7 +31,7 @@ bool exists(Iterator begin, Iterator end, const unsigned int n) {
 
 int main() {
 
-	for (unsigned int i = 1; i < 100; ++i) {
+	for (unsigned int i = 1; i < 20; ++i) {
 
 		// Clear call count
 		callCount = 0;
