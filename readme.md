@@ -4,3 +4,5 @@ See [how this documentation is generated](install.md).
 ![](exponential.png)
 ### linear
 ![](linear.png)
+### logarithmic
+![](logarithmic.png)
