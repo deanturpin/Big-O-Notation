@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 static unsigned int callCount = 0;
 
 unsigned int factorial(unsigned int n);
