@@ -15,8 +15,11 @@ readme.md:
 	./$< | gnuplot -p -e "set datafile separator ','; set output '"$@"'; set terminal png; plot '-' using 1:2 w l"
 	echo "### $(basename $@)" >> readme.md
 	cat $(basename $@).md >> readme.md
+	echo >> readme.md
 	echo "![]($@)" >> readme.md
 
 # Remove all objects, images and generated readme
 clean:
 	rm -f *.png *.o readme.md
+
+rebuild: clean all
