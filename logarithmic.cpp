@@ -4,51 +4,46 @@
 static unsigned int callCount = 0;
 
 template <typename Iterator>
-	bool exists(Iterator begin, Iterator end, const unsigned int n) {
+bool exists(Iterator begin, Iterator end, const unsigned int n) {
 
-		++callCount;
+	using namespace std;
 
-		// std::cout << std::distance(begin, end) << std::endl;
-		for (auto i = begin; i != end; ++i)
-			std::cout << *i << std::endl;
+	++callCount;
 
-		/*
+	// Find the middle element
+	Iterator middle = begin + distance(begin, end) / 2;
 
-		// Find the middle value
-		const auto middle = b.length() / 2;
-
-		if (b.at(middle) == n)
-			return true;
-
-		if (b.at(middle) < n) {
-
-			// Construct a new string
-			const vector<unsigned int> c(b ;
-			for (unsigned int i = 0; i < 
-			return exists(b, n);
-		}
-		*/
-
+	// Have I found what I'm looking for?
+	if (*middle == n)
 		return true;
-	}
+
+	if (begin == (end - 1))
+		return false;
+
+	if (*middle < n)
+		return exists(middle, end, n);
+	else
+		return exists(begin, middle, n);
+
+	return false;
+}
 
 int main() {
 
-	for (unsigned int i = 10; i < 12; ++i) {
+	for (unsigned int i = 1; i < 100; ++i) {
 
 		// Clear call count
 		callCount = 0;
 
 		// Create a container to search
 		std::vector<unsigned int> b;
-		std::cout << "# length " << i << std::endl;
 		for (unsigned int j = 0; j < i; ++j)
 			b.push_back(j);
 
 		// Search for a value that's out of range (worst case)
-		exists(b.cbegin(), b.cend(), i);
+		exists(b.begin(), b.end(), i);
 
-		// std::cout << i << ",\t" << callCount << std::endl;
+		std::cout << i << ",\t" << callCount << std::endl;
 	}
 
 	return 0;

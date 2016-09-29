@@ -6,5 +6,3 @@ See [how this documentation is generated](install.md).
 ![](linear.png)
 ### logarithmic
 ![](logarithmic.png)
-### linear
-![](linear.png)
