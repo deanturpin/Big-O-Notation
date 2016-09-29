@@ -13,17 +13,20 @@ bool exists(Iterator begin, Iterator end, const unsigned int n) {
 	// Find the middle element
 	Iterator middle = begin + distance(begin, end) / 2;
 
-	// Have I found what I'm looking for?
-	if (*middle == n)
-		return true;
+	return (
 
-	if (begin == (end - 1))
-		return false;
+		// We have found it
+		*middle == n ? true :
 
-	if (*middle < n)
-		return exists(middle, end, n);
-	else
-		return exists(begin, middle, n);
+		// There's only one element left
+		begin == (end - 1) ? false :
+
+		// Discard the bottom half
+		*middle < n ? exists(middle, end, n) :
+
+		// Discard the top half
+		exists(begin, middle, n)
+	);
 
 	return false;
 }
