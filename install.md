@@ -7,7 +7,7 @@ gnuplot
 ```
 
 ### Compile code, generate images and documentation
-See ([readme.md](readme.md).
+See [readme.md](readme.md).
 ```bash
 make
 ```

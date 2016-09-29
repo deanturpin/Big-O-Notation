@@ -1,19 +1,21 @@
-# .SILENT:
+# Ultimately we want to end up with some images
+all: readme.md exponential.png linear.png
 
-all: generate
-
-# List of all directories containing a makefile
-source_dirs := $(dir $(wildcard */makefile))
-
-# Build each project
-foo:
-	$(foreach dir, $(source_dirs), make -j -C $(dir);)
-
-# Clean each project
-clean:
-	$(foreach dir, $(source_dirs), make -j -C $(dir) clean;)
-
-generate: foo
+# Initialise the readme if not present
+readme.md:
 	echo '## Big O Notation' > readme.md
 	echo 'See [how this documentation is generated](install.md).' >> readme.md
-	$(foreach dir, $(source_dirs), make -j -C $(dir) generate;)
+
+# Define how to create an object from a source file
+%.o:%.cpp
+	clang++ -Weverything -o $@ $<
+
+# And how to create an image from an object
+%.png:%.o
+	./$< | gnuplot -p -e "set datafile separator ','; set output '"$@"'; set terminal png; plot '-' using 1:2 w l"
+	echo "### $(basename $@)" >> readme.md
+	echo "![]($@)" >> readme.md
+
+# Remove all objects, images and generated readme
+clean:
+	rm -f *.png *.o readme.md

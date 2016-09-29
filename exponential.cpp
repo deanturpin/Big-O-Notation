@@ -10,7 +10,6 @@ namespace bigo {
 	unsigned int fibonacci(const unsigned int);
 	unsigned int fibonacci(const unsigned int n) {
 
-		using namespace std;
 		++callCount;
 
 		return (	
@@ -24,8 +23,16 @@ namespace bigo {
 	void generateSequence();
 	void generateSequence() {
 	
-		for (unsigned int i = 0; i < 20; ++i)
-			cout << i << ",\t" << fibonacci(i) << endl;
+		for (unsigned int i = 0; i < 20; ++i) {
+
+			// Clear call count
+			callCount = 0;
+
+			// Generate sequence
+			fibonacci(i);
+
+			cout << i << ",\t" << callCount << endl;
+		}
 	}
 }
 
