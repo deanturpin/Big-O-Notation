@@ -1,41 +1,33 @@
 #include <iostream>
-#include <iomanip>
 
-namespace bigo {
+using namespace std;
 
-	using namespace std;
+static unsigned int callCount = 0;
 
-	static unsigned int callCount = 0;
+unsigned int factorial(unsigned int n);
+unsigned int factorial(unsigned int n) {
 
-	unsigned int factorial(unsigned int n);
-	unsigned int factorial(unsigned int n) {
+	++callCount;
 
-		++callCount;
-
-		return (
-			n == 0 ? 1 :
-			n == 1 ? 1 :
-			n + factorial(n - 1));
-	}
-
-	void generateSequence();
-	void generateSequence() {
-	
-		for (unsigned int i = 0; i < 20; ++i) {
-
-			// Clear call count
-			callCount = 0;
-
-			// Generate sequence
-			factorial(i);
-
-			cout << i << ",\t" << callCount << endl;
-		}
-	}
+	return (
+		n == 0 ? 1 :
+		n == 1 ? 1 :
+		n + factorial(n - 1)
+	);
 }
 
 int main() {
 
-	bigo::generateSequence();
+	for (unsigned int i = 0; i < 20; ++i) {
+
+		// Clear call count
+		callCount = 0;
+
+		// Generate sequence
+		factorial(i);
+
+		std::cout << i << ",\t" << callCount << std::endl;
+	}
+
 	return 0;
 }
