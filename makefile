@@ -1,5 +1,5 @@
 # Ultimately we want to end up with some images
-all: readme.md exponential.png linear.png
+all: readme.md exponential.png linear.png logarithmic.png
 
 # Initialise the readme if not present
 readme.md:
@@ -8,7 +8,7 @@ readme.md:
 
 # Define how to create an object from a source file
 %.o:%.cpp
-	clang++ -Weverything -o $@ $<
+	clang++ -Weverything -std=c++1y -Wc++98-compat -o $@ $<
 
 # And how to create an image from an object
 %.png:%.o

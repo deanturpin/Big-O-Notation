@@ -1,43 +1,32 @@
 #include <iostream>
-#include <iomanip>
 
-namespace bigo {
+static unsigned int callCount = 0;
 
-	using namespace std;
+unsigned int fibonacci(const unsigned int);
+unsigned int fibonacci(const unsigned int n) {
 
-	static unsigned int callCount = 0;
+	++callCount;
 
-	unsigned int fibonacci(const unsigned int);
-	unsigned int fibonacci(const unsigned int n) {
-
-		++callCount;
-
-		return (	
-				n == 0 ? 0 :
-				n == 1 ? 1 :
-				n == 2 ? 1 :
-				fibonacci(n - 1) + fibonacci(n - 2)
-			   );
-	}
-
-	void generateSequence();
-	void generateSequence() {
-	
-		for (unsigned int i = 0; i < 20; ++i) {
-
-			// Clear call count
-			callCount = 0;
-
-			// Generate sequence
-			fibonacci(i);
-
-			cout << i << ",\t" << callCount << endl;
-		}
-	}
+	return (	
+		n == 0 ? 0 :
+		n == 1 ? 1 :
+		n == 2 ? 1 :
+		fibonacci(n - 1) + fibonacci(n - 2)
+   );
 }
 
 int main() {
 
-	bigo::generateSequence();
+	for (unsigned int i = 0; i < 20; ++i) {
+
+		// Clear call count
+		callCount = 0;
+
+		// Generate sequence
+		fibonacci(i);
+
+		std::cout << i << ",\t" << callCount << std::endl;
+	}
+
 	return 0;
 }
