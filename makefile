@@ -1,5 +1,5 @@
 # Ultimately we want to end up with some images
-all: readme.md exponential.png linear.png logarithmic.png
+all: readme.md exponential.png linear.png logarithmic.png quadratic.png
 
 # Initialise the readme if not present
 readme.md:
@@ -14,6 +14,7 @@ readme.md:
 %.png:%.o
 	./$< | gnuplot -p -e "set datafile separator ','; set output '"$@"'; set terminal png; plot '-' using 1:2 w l"
 	echo "### $(basename $@)" >> readme.md
+	cat $(basename $@).md >> readme.md
 	echo "![]($@)" >> readme.md
 
 # Remove all objects, images and generated readme
