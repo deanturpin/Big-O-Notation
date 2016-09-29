@@ -18,8 +18,12 @@ make clean
 ```
 
 ### Adding new complexities
+- Create new source file ```new.cpp```
+- Add new target to top of makefile ```new.png```
+
 Output should be iteration and a measure of complexity. In this case it is the
 number of calls of a Fibonacci sequence calculator.
+
 ```bash
 $ exponential/foo
 0,      0
