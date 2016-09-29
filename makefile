@@ -8,7 +8,7 @@ readme.md:
 
 # Define how to create an object from a source file
 %.o:%.cpp
-	clang++ -Weverything -std=c++1y -Wc++98-compat -o $@ $<
+	clang++ -Weverything -std=c++1y -Wno-c++98-compat -o $@ $<
 
 # And how to create an image from an object
 %.png:%.o

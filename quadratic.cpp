@@ -7,8 +7,6 @@ static unsigned int callCount = 0;
 template <typename Iterator>
 void insertionSort(Iterator begin, Iterator end) {
 
-	using namespace std;
-
 	for (auto i = begin; i != end - 1; ++i) {
 
 		++callCount;
@@ -31,34 +29,25 @@ void insertionSort(Iterator begin, Iterator end) {
 
 int main() {
 
+	using namespace std;
+
 	for (unsigned int i = 1; i < 20; ++i) {
 
 		// Clear call count
 		callCount = 0;
 
 		// Create something to sort
-		std::vector<unsigned int> sortMe;
+		vector<unsigned int> sortMe;
 		for (unsigned int j = 0; j < i; ++j)
 			sortMe.emplace_back(j);
 
 		// Reverse it so there's lots to sort
-		std::reverse(sortMe.begin(), sortMe.end());
-
-		// Make a copy of B
-		std::vector<unsigned int> c(sortMe);
+		reverse(sortMe.begin(), sortMe.end());
 
 		// Search for a value that's out of range (worst case)
 		insertionSort(sortMe.begin(), sortMe.end());
 
-		for (const auto &x : c)
-			std::cout << x << " ";
-		std::cout << std::endl;
-
-		for (const auto &x : sortMe)
-			std::cout << x << " ";
-		std::cout << std::endl;
-
-		std::cout << "\n" << i << ",\t" << callCount << "\n" << std::endl;
+		cout << i << ",\t" << callCount << endl;
 	}
 
 	return 0;

@@ -16,15 +16,3 @@ O(log n)
 O(n^2)
 
 ![](quadratic.png)
-### logarithmic
-O(log n)
-
-![](logarithmic.png)
-### logarithmic
-O(log n)
-
-![](logarithmic.png)
-### quadratic
-O(n^2)
-
-![](quadratic.png)
