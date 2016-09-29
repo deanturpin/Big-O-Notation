@@ -1,49 +1,64 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
 static unsigned int callCount = 0;
 
 template <typename Iterator>
-bool exists(Iterator begin, Iterator end, const unsigned int n) {
+void insertionSort(Iterator begin, Iterator end) {
 
 	using namespace std;
 
-	++callCount;
+	for (auto i = begin; i != end - 1; ++i) {
 
-	// Find the middle element
-	Iterator middle = begin + distance(begin, end) / 2;
+		++callCount;
 
-	// Have I found what I'm looking for?
-	if (*middle == n)
-		return true;
+		auto now = i;
+		auto next = (now + 1);
 
-	if (begin == (end - 1))
-		return false;
+		if (*now > *next) {
 
-	if (*middle < n)
-		return exists(middle, end, n);
-	else
-		return exists(begin, middle, n);
+			// Swap element
+			auto t = *now;
+			*now = *next;
+			*next = t;
 
-	return false;
+			// Return to start
+			i = begin;
+		}
+	}
 }
 
 int main() {
 
-	for (unsigned int i = 1; i < 100; ++i) {
+	for (unsigned int i = 1; i < 20; ++i) {
 
 		// Clear call count
 		callCount = 0;
 
-		// Create a container to search
-		std::vector<unsigned int> b;
+		// Create something to sort
+		std::vector<unsigned int> sortMe;
 		for (unsigned int j = 0; j < i; ++j)
-			b.push_back(j);
+			sortMe.emplace_back(j);
+
+		// Reverse it so there's lots to sort
+		std::reverse(sortMe.begin(), sortMe.end());
+
+		// Make a copy of B
+		std::vector<unsigned int> c(sortMe);
 
 		// Search for a value that's out of range (worst case)
-		exists(b.begin(), b.end(), i);
+		insertionSort(sortMe.begin(), sortMe.end());
 
-		std::cout << i << ",\t" << callCount << std::endl;
+		for (const auto &x : c)
+			std::cout << x << " ";
+		std::cout << std::endl;
+
+		for (const auto &x : sortMe)
+			std::cout << x << " ";
+		std::cout << std::endl;
+
+		std::cout << "\n" << i << ",\t" << callCount << "\n" << std::endl;
 	}
 
 	return 0;

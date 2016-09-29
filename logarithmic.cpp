@@ -42,7 +42,7 @@ int main() {
 			b.emplace_back(j);
 
 		// Search for a value that's out of range (worst case)
-		exists(b.begin(), b.end(), i);
+		exists(b.cbegin(), b.cend(), i);
 
 		std::cout << i << ",\t" << callCount << std::endl;
 	}
