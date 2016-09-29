@@ -6,8 +6,6 @@ static unsigned int callCount = 0;
 template <typename Iterator>
 bool exists(Iterator begin, Iterator end, const unsigned int n) {
 
-	using namespace std;
-
 	++callCount;
 
 	// Find the middle element
@@ -15,10 +13,10 @@ bool exists(Iterator begin, Iterator end, const unsigned int n) {
 
 	return (
 
-		// We have found it
+		// We have found it, we are done
 		*middle == n ? true :
 
-		// There's only one element left
+		// There's only one element left (and we haven't found it)
 		begin == (end - 1) ? false :
 
 		// Discard the bottom half
@@ -41,7 +39,7 @@ int main() {
 		// Create a container to search
 		std::vector<unsigned int> b;
 		for (unsigned int j = 0; j < i; ++j)
-			b.push_back(j);
+			b.emplace_back(j);
 
 		// Search for a value that's out of range (worst case)
 		exists(b.begin(), b.end(), i);
