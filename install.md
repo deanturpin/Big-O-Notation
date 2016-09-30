@@ -1,5 +1,3 @@
-https://en.wikipedia.org/wiki/Big_O_notation
-
 ### Dependencies
 ```
 clang
@@ -51,3 +49,5 @@ $ exponential/foo
 
 ### See also
 - https://en.wikipedia.org/wiki/Time_complexity
+- https://en.wikipedia.org/wiki/Big_O_notation
+

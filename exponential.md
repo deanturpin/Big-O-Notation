@@ -1,1 +1,1 @@
-O(c^n) where c>1 - Fibonacci sequence
+O(c<sup>n</sup>) where c > 1 - Fibonacci sequence
