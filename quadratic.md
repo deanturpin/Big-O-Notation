@@ -1,1 +1,1 @@
-O(n^2) - insert sort
+O(n<sup>2</sup>) - insert sort
