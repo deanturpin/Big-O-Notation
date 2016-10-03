@@ -3,8 +3,8 @@
 
 static unsigned int callCount = 0;
 
-template <typename Container> unsigned int elements();
-template <typename Container> unsigned int elements(Container &n) {
+template <typename Container> size_t elements();
+template <typename Container> size_t elements(Container &n) {
 
 	++callCount;
 	return n.size();

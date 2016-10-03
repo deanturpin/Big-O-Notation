@@ -1,5 +1,5 @@
 # Ultimately we want to end up with some images
-all: readme.md constant.png exponential.png linear.png logarithmic.png quadratic.png
+all: readme.md constant.png logarithmic.png linear.png quadratic.png exponential.png
 
 # Initialise the readme if not present
 readme.md:
