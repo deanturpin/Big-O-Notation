@@ -13,7 +13,7 @@ O(n) - Factorial
 
 ![](linear.png)
 ### quadratic
-O(n<sup>2</sup>) - insert sort
+O(n<sup>2</sup>) - insertion sort
 
 ![](quadratic.png)
 ### exponential
