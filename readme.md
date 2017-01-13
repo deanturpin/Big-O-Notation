@@ -1,3 +1,7 @@
+Not in active development. Outstanding issues marked as wontfix and closed.
+
+----
+
 ## Big O Notation
 See [how this documentation is generated](install.md).
 ### constant
