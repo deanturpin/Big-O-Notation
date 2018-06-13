@@ -1,5 +1,5 @@
 script:
-  - make CXX=clang++-6.0 swob.o
+  - make CXX=clang++-6.0
   - make clean
   - make CXX=g++-6
   - cppcheck --enable=all .
