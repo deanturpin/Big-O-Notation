@@ -1,5 +1,6 @@
 [![Build
 Status](https://travis-ci.org/deanturpin/bigo.svg?branch=master)](https://travis-ci.org/deanturpin/bigo)
+[![codecov](https://codecov.io/gh/deanturpin/bigo/branch/master/graph/badge.svg)](https://codecov.io/gh/deanturpin/bigo)
 
 See [how this documentation is generated](install.md).
 # constant
