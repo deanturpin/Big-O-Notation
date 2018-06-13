@@ -6,46 +6,47 @@ static unsigned int callCount = 0;
 template <typename Iterator>
 bool exists(Iterator begin, Iterator end, const unsigned int n) {
 
-	++callCount;
+  ++callCount;
 
-	// Find the middle element
-	Iterator middle = begin + distance(begin, end) / 2;
+  // Find the middle element
+  Iterator middle = begin + distance(begin, end) / 2;
 
-	return (
+  return (
 
-		// We have found it, we are done
-		*middle == n ? true :
+      // We have found it, we are done
+      *middle == n ? true
+                   :
 
-		// There's only one element left (and we haven't found it)
-		begin == (end - 1) ? false :
+                   // There's only one element left (and we haven't found it)
+          begin == (end - 1) ? false
+                             :
 
-		// Discard the bottom half
-		*middle < n ? exists(middle, end, n) :
+                             // Discard the bottom half
+              *middle < n ? exists(middle, end, n) :
 
-		// Discard the top half
-		exists(begin, middle, n)
-	);
+                          // Discard the top half
+                  exists(begin, middle, n));
 
-	return false;
+  return false;
 }
 
 int main() {
 
-	for (unsigned int i = 1; i < 100; ++i) {
+  for (unsigned int i = 1; i < 100; ++i) {
 
-		// Clear call count
-		callCount = 0;
+    // Clear call count
+    callCount = 0;
 
-		// Create a container to search
-		std::vector<unsigned int> b;
-		for (unsigned int j = 0; j < i; ++j)
-			b.emplace_back(j);
+    // Create a container to search
+    std::vector<unsigned int> b;
+    for (unsigned int j = 0; j < i; ++j)
+      b.emplace_back(j);
 
-		// Search for a value that's out of range (worst case)
-		exists(b.cbegin(), b.cend(), i);
+    // Search for a value that's out of range (worst case)
+    exists(b.cbegin(), b.cend(), i);
 
-		std::cout << i << ",\t" << callCount << std::endl;
-	}
+    std::cout << i << ",\t" << callCount << std::endl;
+  }
 
-	return 0;
+  return 0;
 }
