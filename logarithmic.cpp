@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 static unsigned int callCount = 0;
 
+// Binary search
 template <typename Iterator>
 bool exists(Iterator begin, Iterator end, const unsigned int n) {
 
@@ -11,36 +13,23 @@ bool exists(Iterator begin, Iterator end, const unsigned int n) {
   // Find the middle element
   Iterator middle = begin + distance(begin, end) / 2;
 
-  return (
-
-      // We have found it, we are done
-      *middle == n ? true
-                   :
-
-                   // There's only one element left (and we haven't found it)
-          begin == (end - 1) ? false
-                             :
-
-                             // Discard the bottom half
-              *middle < n ? exists(middle, end, n) :
-
-                          // Discard the top half
-                  exists(begin, middle, n));
-
-  return false;
+  return *middle == n
+             ? true
+             : begin == (end - 1) ? false
+                                  : *middle < n ? exists(middle, end, n)
+                                                : exists(begin, middle, n);
 }
 
 int main() {
 
-  for (unsigned int i = 1; i < 100; ++i) {
+  for (size_t i = 1; i < 100; ++i) {
 
     // Clear call count
     callCount = 0;
 
     // Create a container to search
-    std::vector<unsigned int> b;
-    for (unsigned int j = 0; j < i; ++j)
-      b.emplace_back(j);
+    std::vector<unsigned int> b(i);
+    std::iota(b.begin(), b.end(), 0);
 
     // Search for a value that's out of range (worst case)
     exists(b.cbegin(), b.cend(), i);

@@ -11,7 +11,7 @@ unsigned int factorial(unsigned int n) {
 
 int main() {
 
-  for (unsigned int i = 0; i < 20; ++i) {
+  for (size_t i = 0; i < 20; ++i) {
 
     // Clear call count
     callCount = 0;
