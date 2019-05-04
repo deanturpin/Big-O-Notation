@@ -2,7 +2,6 @@
 
 static unsigned int callCount = 0;
 
-unsigned int fibonacci(const unsigned int);
 unsigned int fibonacci(const unsigned int n) {
 
   ++callCount;
@@ -14,7 +13,7 @@ unsigned int fibonacci(const unsigned int n) {
 
 int main() {
 
-  for (unsigned int i = 0; i < 20; ++i) {
+  for (size_t i = 0; i < 20; ++i) {
 
     // Clear call count
     callCount = 0;
@@ -22,8 +21,6 @@ int main() {
     // Generate sequence
     fibonacci(i);
 
-    std::cout << i << ",\t" << callCount << std::endl;
+    std::cout << i << ",\t" << callCount << '\n';
   }
-
-  return 0;
 }

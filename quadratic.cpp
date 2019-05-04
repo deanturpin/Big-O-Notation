@@ -48,6 +48,4 @@ int main() {
 
     cout << i << ",\t" << callCount << endl;
   }
-
-  return 0;
 }

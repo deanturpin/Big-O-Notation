@@ -2,7 +2,6 @@
 
 static unsigned int callCount = 0;
 
-unsigned int factorial(unsigned int);
 unsigned int factorial(unsigned int n) {
 
   ++callCount;
@@ -20,8 +19,6 @@ int main() {
     // Generate sequence
     factorial(i);
 
-    std::cout << i << ",\t" << callCount << std::endl;
+    std::cout << i << ",\t" << callCount << '\n';
   }
-
-  return 0;
 }
