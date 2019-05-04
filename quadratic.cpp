@@ -16,9 +16,7 @@ template <typename Iterator> void insertionSort(Iterator begin, Iterator end) {
     if (*now > *next) {
 
       // Swap element
-      auto t = *now;
-      *now = *next;
-      *next = t;
+    std::swap(*now, *next);
 
       // Return to start
       i = begin;
@@ -28,24 +26,22 @@ template <typename Iterator> void insertionSort(Iterator begin, Iterator end) {
 
 int main() {
 
-  using namespace std;
-
   for (unsigned int i = 1; i < 20; ++i) {
 
     // Clear call count
     callCount = 0;
 
     // Create something to sort
-    vector<unsigned int> sortMe;
+    std::vector<unsigned int> sortMe;
     for (unsigned int j = 0; j < i; ++j)
       sortMe.emplace_back(j);
 
     // Reverse it so there's lots to sort
-    reverse(sortMe.begin(), sortMe.end());
+    std::reverse(sortMe.begin(), sortMe.end());
 
     // Search for a value that's out of range (worst case)
     insertionSort(sortMe.begin(), sortMe.end());
 
-    cout << i << ",\t" << callCount << endl;
+    std::cout << i << ",\t" << callCount << '\n';
   }
 }
