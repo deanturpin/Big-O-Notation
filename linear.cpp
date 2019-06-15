@@ -19,6 +19,6 @@ int main() {
     // Generate sequence
     factorial(i);
 
-    std::cout << i << ",\t" << callCount << '\n';
+    std::cout << i << ",\t" << callCount << "\n";
   }
 }

@@ -42,6 +42,6 @@ int main() {
     // Search for a value that's out of range (worst case)
     insertionSort(sortMe.begin(), sortMe.end());
 
-    std::cout << i << ",\t" << callCount << '\n';
+    std::cout << i << ",\t" << callCount << "\n";
   }
 }

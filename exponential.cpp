@@ -21,6 +21,6 @@ int main() {
     // Generate sequence
     fibonacci(i);
 
-    std::cout << i << ",\t" << callCount << '\n';
+    std::cout << i << ",\t" << callCount << "\n";
   }
 }

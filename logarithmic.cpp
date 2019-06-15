@@ -34,6 +34,6 @@ int main() {
     // Search for a value that's out of range (worst case)
     exists(b.cbegin(), b.cend(), i);
 
-    std::cout << i << ",\t" << callCount << '\n';
+    std::cout << i << ",\t" << callCount << "\n";
   }
 }

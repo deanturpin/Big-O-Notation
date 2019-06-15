@@ -21,6 +21,6 @@ int main() {
     std::vector<double> v(i);
     elements(v);
 
-    std::cout << i << ",\t" << callCount << '\n';
+    std::cout << i << ",\t" << callCount << "\n";
   }
 }
